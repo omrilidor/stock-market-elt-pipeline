@@ -1,0 +1,24 @@
+{
+  "name": "stock-market-elt-pipeline",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+  "forwardPorts": [4040],
+  "portsAttributes": {
+    "4040": { "label": "Spark UI", "onAutoForward": "silent" }
+  },
+  "remoteUser": "vscode"
+}

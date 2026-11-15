@@ -1,0 +1,19 @@
+# Spark + Delta Lake (Delta 3.3.x supports Spark 3.5.x)
+pyspark==3.5.*
+delta-spark==3.3.*
+
+# dbt on Spark (session method runs dbt inside a local PySpark session).
+# dbt-core is pinned to the stable 1.12 line; without the pin, pip picked a 1.13 beta.
+dbt-core==1.12.*
+dbt-spark[session]==1.11.*
+
+# Extract
+yfinance
+requests
+pandas
+lxml
+
+# Dev tools
+pytest
+ruff
+ipykernel
