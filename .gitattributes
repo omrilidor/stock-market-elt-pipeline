@@ -1,0 +1,3 @@
+# Keep Linux line endings (LF) in every text file. The code runs inside a Linux
+# dev container, where Windows line endings (CRLF) can break shell scripts.
+* text=auto eol=lf
