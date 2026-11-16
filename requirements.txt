@@ -12,8 +12,10 @@ yfinance
 requests
 pandas
 lxml
+pyarrow==26.*      # Parquet for raw files
 
 # Dev tools
 pytest
 ruff
 ipykernel
+nbstripout==0.9.*  # strips notebook outputs before commit

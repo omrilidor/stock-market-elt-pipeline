@@ -3,7 +3,7 @@
 ## What this project is
 A portfolio data engineering project (for GitHub and my resume). It is an **ELT** pipeline for stock market data, built with **PySpark** and **dbt**. It runs locally first and is then ported to **Databricks Free Edition**.
 
-I work on it Sunday to Thursday, about **2 hours a day**. You (Claude) write most of the code. I make the decisions and review every change.
+I work on it Sunday to Thursday, about **2 hours a day**. **I write the code myself; you (Claude) guide me**: break the work into small steps, explain what each piece should do and why, give hints rather than full solutions, then review and run what I wrote. I make the decisions. Housekeeping (plan files, verified dependency pins) you may do directly.
 
 **Today's plan and progress are in `docs/plans/`.** Read the newest file there at the start of each session.
 
