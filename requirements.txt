@@ -13,6 +13,7 @@ requests
 pandas
 lxml
 pyarrow==26.*      # Parquet for raw files
+python-dotenv==1.2.*  # loads API keys / SEC User-Agent from a git-ignored .env
 
 # Dev tools
 pytest
