@@ -30,6 +30,7 @@ data/raw/         git-ignored
 data/lakehouse/   git-ignored (Delta tables)
 data/reference/   small reference files (e.g. sp500_tickers.csv)
 docs/plans/       daily plans and progress
+.github/          PR template
 ```
 
 ## Environment
@@ -53,6 +54,7 @@ docs/plans/       daily plans and progress
 - **Ask before design decisions** (table layout, partitioning, naming, new tools or dependencies). Implement routine code without asking.
 - **Small steps.** One working piece at a time. Run it and show me the result before moving on.
 - **Commits:** small, with clear messages. Only commit or push when I say so.
+- **Branches and PRs (from Nov 18):** never work directly on `main`. Each topic gets its own branch named `feature/<topic>` (e.g. `feature/fred-extract`, `feature/upload-to-volume`), created from an up-to-date `main` at the start of the work. When the topic is finished, push the branch and open a PR with `gh pr create`. The description follows `.github/pull_request_template.md` (what, why, decisions, results, how to test, concepts) and links the day's plan file. Merge only when I say so, then switch back to `main` and pull.
 - **Before giving me any link, install command or version pin, check that it works.**
 - **End of each day:** when I say I'm done, update today's file in `docs/plans/` with what got finished, then write the next work day's plan (2 hours, time-blocked, with a "done when" checklist) as a new file there. Fridays and Saturdays are days off.
 
