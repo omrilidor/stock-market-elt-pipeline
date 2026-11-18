@@ -58,15 +58,20 @@ You need Docker and VS Code with the Dev Containers extension.
 
 1. Open the folder in VS Code → **Dev Containers: Reopen in Container**.
 2. Check Spark and Delta: `python scripts/smoke_test_spark.py` should print `OK`.
-3. Create a `.env` in the project root (it is git-ignored):
+3. Create your `.env` from the template (`.env` is git-ignored) and fill in the values:
+   ```bash
+   cp .env.example .env
    ```
-   SEC_USER_AGENT="stock-market-elt-pipeline your-email@example.com"
-   ```
+   | Variable | Used by | How to get it |
+   |---|---|---|
+   | `SEC_USER_AGENT` | SEC EDGAR extract | Your project name and contact email, e.g. `"stock-market-elt-pipeline you@example.com"`. SEC requires it ([policy](https://www.sec.gov/os/accessing-edgar-data)). |
+   | `FRED_API_KEY` | FRED extract | Free. Sign in at [fred.stlouisfed.org](https://fred.stlouisfed.org/docs/api/api_key.html) → **Request API Key**. It is 32 characters. |
 4. Run the extracts. A few tickers or companies first, then everything:
    ```bash
    python extract/yfinance_extract.py --tickers AAPL MSFT BRK-B --start 2026-11-01
    python extract/sec_edgar_extract.py --ciks 0000320193 0000789019
    python extract/sec_edgar_extract.py          # all S&P 500 companies, ~10 min
+   python extract/fred_extract.py               # 5 macro series, a few seconds
    ```
 5. Run the tests: `pytest`
 
