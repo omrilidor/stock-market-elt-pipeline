@@ -66,6 +66,8 @@ You need Docker and VS Code with the Dev Containers extension.
    |---|---|---|
    | `SEC_USER_AGENT` | SEC EDGAR extract | Your project name and contact email, e.g. `"stock-market-elt-pipeline you@example.com"`. SEC requires it ([policy](https://www.sec.gov/os/accessing-edgar-data)). |
    | `FRED_API_KEY` | FRED extract | Free. Sign in at [fred.stlouisfed.org](https://fred.stlouisfed.org/docs/api/api_key.html) → **Request API Key**. It is 32 characters. |
+   | `DATABRICKS_HOST` | Upload to Databricks | Your workspace URL, e.g. `https://<your-workspace>.cloud.databricks.com` (copy it from the browser, up to `.com`). |
+   | `DATABRICKS_TOKEN` | Upload to Databricks | Databricks → profile (top right) → **Settings → Developer → Access tokens → Generate new token** ([docs](https://docs.databricks.com/aws/en/dev-tools/auth/pat)). Set a lifetime; it is shown only once. |
 4. Run the extracts. A few tickers or companies first, then everything:
    ```bash
    python extract/yfinance_extract.py --tickers AAPL MSFT BRK-B --start 2026-11-01
