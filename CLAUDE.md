@@ -59,11 +59,14 @@ docs/plans/       daily plans and progress
 - **End of each day:** when I say I'm done, update today's file in `docs/plans/` with what got finished, then write the next work day's plan (2 hours, time-blocked, with a "done when" checklist) as a new file there. Fridays and Saturdays are days off.
 
 ## Timeline (Sun–Thu, 2 hours a day)
+**Revised Nov 22 for baby-step pace** (new concepts take ~2× what the first plan assumed). Strategy: one **vertical slice** first, yfinance from bronze to gold, so something works end to end early; SEC and FRED follow the same pattern afterwards. The buffer week is now used for the finish; stretch goals only if time is left.
+
 | Week | Dates | Focus |
 |---|---|---|
-| 1 | Nov 15–19 | Setup, repo, Databricks account, extract scripts |
-| 2 | Nov 22–26 | PySpark load to bronze, start dbt (sources, staging) |
-| 3 | Nov 29–Dec 3 | dbt: intermediate models, marts, snapshots, tests, docs |
-| 4 | Dec 6–10 | Port to Databricks: Volume, load, dbt-databricks, Databricks Job |
-| 5 | Dec 13–17 | Dashboard, GitHub Actions CI, daily scheduled extract, README |
-| 6 | Dec 20–24 | Buffer, stretch goals, update resume and LinkedIn |
+| 1 | Nov 15–19 | ✅ Setup, repo, Databricks account, extract scripts, upload to Volume |
+| 2 | Nov 22–26 | ✅ yfinance bronze load. PR, Spark UI. dbt setup (dbt-spark session), sources on bronze, first staging model + tests |
+| 3 | Nov 29–Dec 3 | dbt yfinance slice: staging (splits, dividends), intermediate (split/dividend-adjusted prices), incremental `merge` mart, tests (`unique`, `not_null`, `high >= low`, `price > 0`) |
+| 4 | Dec 6–10 | SEC + FRED: bronze load, staging, `dim_company` snapshot (SCD2), dbt docs |
+| 5 | Dec 13–17 | Port to Databricks: load from Volume, dbt-databricks target, Databricks Job |
+| 6 | Dec 20–24 | Simple dashboard, GitHub Actions CI (pytest + dbt build), README, resume and LinkedIn |
+| Stretch | — | Daily scheduled extract in GitHub Actions, more dashboard pages |
