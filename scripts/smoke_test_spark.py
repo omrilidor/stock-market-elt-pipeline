@@ -7,26 +7,11 @@ Run with: python scripts/smoke_test_spark.py
 import shutil
 import tempfile
 
-from delta import configure_spark_with_delta_pip
-from pyspark.sql import SparkSession
-
-
-def build_spark() -> SparkSession:
-    builder = (
-        SparkSession.builder.appName("smoke-test")
-        .master("local[*]")
-        .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
-        .config(
-            "spark.sql.catalog.spark_catalog",
-            "org.apache.spark.sql.delta.catalog.DeltaCatalog",
-        )
-    )
-    # Adds the Delta Lake jars that match the installed delta-spark version.
-    return configure_spark_with_delta_pip(builder).getOrCreate()
+from load.spark_session import build_spark
 
 
 def main() -> None:
-    spark = build_spark()
+    spark = build_spark("smoke-test")
     spark.sparkContext.setLogLevel("WARN")
     path = tempfile.mkdtemp(prefix="delta-smoke-")
     try:

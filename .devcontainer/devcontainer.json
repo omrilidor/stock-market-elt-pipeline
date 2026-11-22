@@ -23,5 +23,6 @@
   "portsAttributes": {
     "4040": { "label": "Spark UI", "onAutoForward": "silent" }
   },
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "postCreateCommand": "pip install --user -e ."
 }

@@ -5,6 +5,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .ipynb_checkpoints/
+*.egg-info/
 
 # Data (raw files and Delta tables are generated, never committed)
 data/raw/
